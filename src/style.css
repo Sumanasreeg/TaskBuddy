@@ -1,53 +1,72 @@
-/* Minimal, clean styles for the Task Manager */
+/* ===== RESET ===== */
 
 * {
   box-sizing: border-box;
 }
 
+/* ===== ENTIRE PAGE BACKGROUND ===== */
+
 html, body {
   margin: 0;
   padding: 0;
+  min-height: 100vh;
   font-family: -apple-system, system-ui, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
-  background: #f7f7f8;
+  background: linear-gradient(135deg,#e5e7eb,#c7d2fe);
   color: #111111;
 }
 
+/* ===== APP CONTAINER (NOT WHITE ANYMORE) ===== */
+
 .App {
   max-width: 720px;
-  margin: 0 auto;
-  padding: 24px;
+  margin: 50px auto;
+  padding: 28px;
+  background: #eef2ff;   /* ⭐ changed from white */
+  border-radius: 18px;
+  box-shadow: 0 12px 30px rgba(0,0,0,0.08);
 }
 
+/* ===== HEADER ===== */
+
 header {
-  margin-bottom: 16px;
+  margin-bottom: 18px;
 }
 
 header h1 {
   margin: 0 0 4px 0;
-  font-size: 28px;
+  font-size: 30px;
+  font-weight: 700;
 }
 
 header p {
   margin: 0;
-  color: #555;
+  color: #6b7280;
 }
+
+/* ===== TASK FORM ===== */
 
 .task-form {
   display: flex;
   flex-wrap: wrap;
-  gap: 8px;
-  margin: 16px 0;
+  gap: 10px;
+  margin: 18px 0;
 }
 
 #inp {
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 10px;
   flex: 1;
-  padding: 8px 10px;
-  border: 1px solid #e5e7eb;
-  border-radius: 8px;
-  background: #ffffff;
+  padding: 10px 12px;
+  border: 1px solid #c7d2fe;
+  border-radius: 12px;
+  background: rgba(255,255,255,0.6);
+  transition: 0.2s ease;
+}
+
+#inp:focus-within {
+  border-color: #4f46e5;
+  box-shadow: 0 0 0 3px rgba(79,70,229,0.15);
 }
 
 #inp input {
@@ -60,12 +79,21 @@ header p {
 
 #inp button {
   border: 0;
-  background: #111111;
+  background: linear-gradient(135deg,#4f46e5,#6366f1);
   color: #ffffff;
-  padding: 8px 12px;
-  border-radius: 6px;
+  padding: 9px 14px;
+  border-radius: 10px;
   cursor: pointer;
+  font-weight: 600;
+  transition: 0.25s ease;
 }
+
+#inp button:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 14px rgba(79,70,229,0.35);
+}
+
+/* ===== DROPDOWNS ===== */
 
 #btns {
   display: flex;
@@ -73,65 +101,85 @@ header p {
 }
 
 #btns select {
-  padding: 8px 10px;
-  border: 1px solid #e5e7eb;
-  border-radius: 6px;
-  background: #ffffff;
+  padding: 9px 12px;
+  border: 1px solid #c7d2fe;
+  border-radius: 10px;
+  background: rgba(255,255,255,0.6);
 }
+
+/* ===== TASK LIST ===== */
 
 .task-list {
   list-style: none;
   padding: 0;
-  margin: 16px 0;
+  margin: 18px 0;
 }
 
 .task-list li {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  gap: 8px;
-  padding: 12px;
-  border: 1px solid #eeeeee;
-  border-radius: 8px;
-  background: #ffffff;
+  gap: 10px;
+  padding: 14px;
+  border-radius: 12px;
+  background: rgba(255,255,255,0.6);
+  border: 1px solid #e0e7ff;
+  transition: 0.2s ease;
+}
+
+.task-list li:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 18px rgba(0,0,0,0.06);
 }
 
 .task-list li.completed {
   text-decoration: line-through;
-  opacity: 0.7;
+  opacity: 0.6;
 }
 
 .task-list button {
-  background: none;
+  background: #ecfdf5;
   border: 0;
   color: #047857;
   cursor: pointer;
-  padding: 6px 8px;
+  padding: 6px 10px;
   border-radius: 6px;
 }
 
+/* ===== PROGRESS TRACKER ===== */
+
 .progress-tracker {
-  margin-top: 16px;
+  margin-top: 18px;
 }
 
 .progress-bar {
-  height: 8px;
-  background: #eeeeee;
+  height: 10px;
+  background: #e5e7eb;
   border-radius: 999px;
   overflow: hidden;
 }
 
 .progress {
   height: 100%;
-  background: #16a34a;
+  background: linear-gradient(90deg,#4f46e5,#22c55e);
+  transition: width 0.3s ease;
 }
 
+/* ===== CLEAR BUTTON ===== */
+
 .clear-btn {
-  margin-top: 16px;
-  background: #dc2626;
+  margin-top: 18px;
+  background: #ef4444;
   color: #ffffff;
   border: 0;
-  padding: 10px 14px;
-  border-radius: 6px;
+  padding: 11px 16px;
+  border-radius: 8px;
   cursor: pointer;
+  font-weight: 600;
+  transition: 0.2s;
+}
+
+.clear-btn:hover {
+  background: #dc2626;
+  transform: translateY(-1px);
 }
